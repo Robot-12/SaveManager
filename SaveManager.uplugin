@@ -1,0 +1,29 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "SaveManager",
+	"Description": "",
+	"Category": "Other",
+	"CreatedBy": "RobotGames",
+	"CreatedByURL": "https://github.com/Robot-12",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+    "Modules": [
+      {
+        "Name": "SaveManager",
+        "Type": "Runtime",
+        "LoadingPhase": "Default",
+        "AdditionalDependencies": [],
+        "AdditionalProperties": {
+          "ConfigFile": "DefaultSaveManager.ini"
+        }
+      }
+    ]
+
+}
