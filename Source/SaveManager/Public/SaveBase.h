@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Abstract)
 class SAVEMANAGER_API USaveBase : public USaveGame
 {
 	GENERATED_BODY()

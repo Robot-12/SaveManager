@@ -78,7 +78,7 @@ USaveBase* USaveSystem::LoadOrCreateSaveGameObject(UClass* ObjectClass, bool &bO
 	//const bool bIsGeneral = GeneralSave.Contains(ObjectClass);
 
 	FString SlotName;
-	SlotName = "Tor_" + ObjectClass->GetName();
+	SlotName = "SM_" + ObjectClass->GetName();
 
 	// if (bIsGeneral)
 	// {
