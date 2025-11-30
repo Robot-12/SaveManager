@@ -47,7 +47,12 @@ public:
 	 */
 	virtual void MigrateFromVersion(int32 OldVersion);
 
-
 	UPROPERTY()
 	class USaveManagerGameInstanceSubsystem* GameInstance = nullptr;
+	
+	/**
+	 * If true, no code will be written to the slot, but it will be written globally.
+	 */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Save Config", meta = (ToolTip = "If true, no code will be written to the slot, but it will be written globally."))
+	bool bPreventSaveToSlot = false;
 };

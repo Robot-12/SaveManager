@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "SaveBase.h"
+#include "SaveManager/Structures/SaveSlotBase.h"
 #include "SaveSystem.generated.h"
 
 /**
@@ -14,9 +15,9 @@ class SAVEMANAGER_API USaveSystem : public UObject
 {
 	GENERATED_BODY()
 
-	protected:
-	USaveBase* LoadOrCreateSaveGameObject(UClass* ObjectClass, bool &bOutFirstRun);
-	void SaveGameSaveObject(USaveBase* SaveObject);
+protected:
+	USaveBase* LoadOrCreateSaveGameObject(const UClass* ObjectClass, bool &bOutFirstRun) const;
+	void SaveGameSaveObject(USaveBase* SaveObject) const;
 
 	virtual void PostInitProperties() override;
 	virtual void BeginDestroy() override;
@@ -39,7 +40,6 @@ class SAVEMANAGER_API USaveSystem : public UObject
 
 public:
 	void Init();
-	void Shutdown();
 
 	template<typename T>
 	T* GetSave()
@@ -71,14 +71,38 @@ public:
 	}
 	void Reset(TSubclassOf<USaveBase> ObjectClass);
 	void ResetAll();
-
-	static USaveSystem* Get();
-
+	
 	UPROPERTY()
 	class USaveManagerGameInstanceSubsystem* GameInstance = nullptr;
 
+	static USaveSystem* Get();
+	
+	//Slots System
+	
+	UFUNCTION()
+	void SetSaveSlot(int32 NewSlot = -1);
+	
+	UFUNCTION()
+	int32 GetSaveSlot() const;
+	
+	/*
+ 	* Returns a map of all save slots.
+ 	*/
+	UFUNCTION(BlueprintPure, BlueprintCallable, Category = "Save System", meta = (ToolTip = "Returns a map of all save slots"))
+	static TMap<int32, USaveSlotBase*> GetAvailableSaveSlots();
+	
+	/*
+	 * Returns class Slot
+	 */
+	UFUNCTION(BlueprintPure, BlueprintCallable, Category = "Save System", meta = (ToolTip = "Returns class Slot"))
+	static TSubclassOf<USaveSlotBase> GetSaveSlotClass();
+	
 protected:
 	static USaveSystem* Singleton;
 
 	TArray<TSubclassOf<USaveBase>> GeneralSave;
+	
+	//Slots System
+	
+	int32 SaveSlot = -1;
 };

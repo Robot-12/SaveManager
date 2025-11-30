@@ -11,6 +11,11 @@ static int32 GetConfigSaveVersion()
 	return GetDefault<USaveManagerSettings>()->SaveVersion;
 }
 
+USaveGameVersioning::USaveGameVersioning()
+{
+	bPreventSaveToSlot = true;
+}
+
 void USaveGameVersioning::FirstRunInit()
 {
 	SetSaveVersion(GetConfigSaveVersion());

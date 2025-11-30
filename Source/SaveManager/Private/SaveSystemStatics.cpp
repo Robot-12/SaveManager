@@ -51,3 +51,13 @@ USaveBase* USaveSystemStatics::GetSaveByClass(TSubclassOf<USaveBase> SaveClass)
 
 	return USaveSystem::Get()->GetSave(SaveClass);
 }
+
+void USaveSystemStatics::SetSaveSlotIndex(const int32 NewSlot)
+{
+	USaveSystem::Get()->SetSaveSlot(NewSlot);
+}
+
+int32 USaveSystemStatics::GetSaveSlotIndex()
+{
+	return USaveSystem::Get()->GetSaveSlot();
+}

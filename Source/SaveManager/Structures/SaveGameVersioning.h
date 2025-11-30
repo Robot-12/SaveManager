@@ -15,6 +15,8 @@ class SAVEMANAGER_API USaveGameVersioning : public USaveBase
 	GENERATED_BODY()
 
 public:
+	USaveGameVersioning();
+	
 	virtual void FirstRunInit() override;
 	virtual void MigrateFromVersion(int32 OldVersion) override;
 

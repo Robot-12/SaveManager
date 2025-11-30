@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Engine/DeveloperSettings.h"
+#include "SaveManager/Structures/SaveSlotBase.h"
 #include "SaveManagerSettings.generated.h"
 
 /**
@@ -28,4 +29,24 @@ public:
 	 */
 	UPROPERTY(EditAnywhere, config, Category="Version",  meta = (ToolTip = "Current version of the save system. Increase this when the save data format changes."))
 	int32 SaveVersion = 1;
+	
+	/**
+	 * Adds a prefix to the save file (Format: Prefix + SaveName).
+	 * IMPORTANT: Changing this will prevent older save files from loading unless manually renamed. Recommended to set this early.
+	 */
+	UPROPERTY(EditAnywhere, Config, Category="Config|Prefix", meta = (ToolTip = "Adds a prefix to the save file (Format: Prefix + SaveName). IMPORTANT: Changing this will prevent older save files from loading unless manually renamed. Recommended to set this early."))
+	FString PrefixFile = FString(TEXT("SM_"));
+
+	/**
+	 * Adds a prefix to the slot folder where data is stored (Format: Prefix + SlotIndex).
+	 * IMPORTANT: Changing this will prevent older slots from loading unless folders are manually renamed. Recommended to set this early.
+	 */
+	UPROPERTY(EditAnywhere, Config, Category="Config|Prefix", meta = (ToolTip = "Adds a prefix to the slot folder where data is stored (Format: Prefix + SlotIndex). IMPORTANT: Changing this will prevent older slots from loading unless folders are manually renamed. Recommended to set this early."))
+	FString PrefixFolder = FString(TEXT("Slot_"));
+
+	/**
+	 * Specifies the class used for save slots, containing metadata such as the slot name, thumbnail, and description.
+	 */
+	UPROPERTY(EditAnywhere, Config, Category="Config", meta = (ToolTip = "Specifies the class used for save slots, containing metadata such as the slot name, thumbnail, and description."))
+	TSubclassOf<USaveSlotBase> SaveSlotClass = USaveSlotBase::StaticClass();
 };
