@@ -1,4 +1,4 @@
-// Copyright Robot Games. All Rights Reserved.
+// Author: Robot 12
 
 
 #include "SaveManager/Structures/SaveGameVersioning.h"

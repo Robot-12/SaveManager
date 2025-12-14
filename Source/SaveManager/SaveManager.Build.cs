@@ -1,4 +1,4 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
+// Author: Robot 12
 
 using UnrealBuildTool;
 
