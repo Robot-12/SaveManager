@@ -23,7 +23,6 @@ This project is special to me as it marks my **very first plugin developed for U
 * **Version Migration:** Built-in `MigrateFromVersion` system allows you to update your save data structures without breaking players' old save files.
 * **Slot System:** Easy-to-use support for multiple save slots and profiles.
 * **Hybrid Workflow:** Written in C++ for performance, but fully accessible via **Blueprints** through a global Static Library.
-* **Developer Friendly:** Includes `FirstRunInit` logic to easily set up default values for new players.
 
 ## 🤝 Feedback
 Since this is my first UE5 plugin, I appreciate any feedback, suggestions, or bug reports. Thank you for checking it out!
